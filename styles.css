@@ -116,14 +116,9 @@ ul {
 }
 
 .logo-icon {
-    width: 45px;
-    height: 45px;
+    width: 70px;
+    height: 70px;
     color: var(--primary-red);
-}
-
-.logo-icon svg {
-    width: 100%;
-    height: 100%;
 }
 
 .logo-title {
@@ -213,30 +208,47 @@ ul {
     margin-top: 80px;
     overflow: hidden;
 }
+/* =========================
+   Banner Section
+========================= */
+.banner-section {
+    position: relative;
+    height: auto;
+    margin-top: 80px; /* navbar height */
+    overflow: hidden;
+}
 
 .hero-banner {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; 
     width: 100%;
     height: 100%;
-    z-index: 0;
 }
 
 .banner-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
 .banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(168, 32, 50, 0.9) 0%, rgba(107, 22, 33, 0.85) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(168, 32, 50, 0.45),
+        rgba(107, 22, 33, 0.35)
+    );
+}
+
+/* =========================
+   Hero Section
+========================= */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: 0; /* CHANGED: was 80px */
+    overflow: hidden;
 }
 
 .hero-content-wrapper {
@@ -305,7 +317,41 @@ ul {
     margin-bottom: 4rem;
 }
 
-/* Buttons */
+/* =========================
+   Hero Background Image
+========================= */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center; /* keep right side clear */
+}
+
+/* Gradient + blur overlay (LEFT side emphasis) */
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.55) 35%,
+        rgba(0, 0, 0, 0.25) 55%,
+        rgba(0, 0, 0, 0) 75%
+    );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* =========================
+   Buttons
+========================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -329,13 +375,13 @@ ul {
 }
 
 .btn-primary {
-    background: var(--gold);
-    color: var(--burgundy);
+    background: var(--burgundy);
+    color: var(--gold);
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
 }
 
 .btn-primary:hover {
-    background: #e8c04d;
+    background: #900c0c;
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
 }
@@ -356,7 +402,9 @@ ul {
     font-size: 1.1rem;
 }
 
-/* Hero Stats */
+/* =========================
+   Hero Stats
+========================= */
 .hero-stats {
     display: flex;
     align-items: center;
@@ -388,7 +436,9 @@ ul {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Sections */
+/* =========================
+   Sections
+========================= */
 .section {
     padding: 6rem 2rem;
 }
@@ -443,6 +493,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 /* About Section */
 .about-section {
@@ -530,12 +581,15 @@ ul {
     position: relative;
 }
 
-.image-card {
-    position: relative;
+.image-card img.about-img {
+    width: 100%;
+    height: 100%;
     border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
+    display: block;
+    object-fit: contain;     /* KEY: no cropping */
+    background: linear-gradient(135deg, var(--primary-red), var(--burgundy));
 }
+
 
 .image-placeholder {
     width: 100%;
@@ -546,10 +600,6 @@ ul {
     background: linear-gradient(135deg, var(--primary-red), var(--burgundy));
 }
 
-.image-placeholder svg {
-    width: 60%;
-    height: 60%;
-}
 
 .image-card-overlay {
     position: absolute;
@@ -769,11 +819,17 @@ ul {
 }
 
 .faculty-image {
+    position: relative;
     height: 250px;
     background: linear-gradient(135deg, var(--primary-red), var(--burgundy));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden; /* IMPORTANT */
+}
+
+.faculty-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+    display: block;         
 }
 
 .faculty-image .image-placeholder {
@@ -1521,7 +1577,7 @@ ul {
     
     .hero-section {
         margin-top: 0;
-        min-height: auto;
+        min-height: 0;
         padding: 2rem 0;
     }
     
