@@ -1,3 +1,4 @@
+
 # BAP Website – ISPSC Tagudin Campus
 
 Official website project for the **Bachelor of Arts in Psychology (BAP)**  
@@ -11,3 +12,4 @@ https://yennicorn.github.io/BAP-website/
 - CSS
 - JavaScript
 - GitHub Pages
+
