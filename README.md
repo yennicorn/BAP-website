@@ -6,4 +6,8 @@ Ilocos Sur Polytechnic State College – Tagudin Campus.
 ## 🌐 Live Website
 https://yennicorn.github.io/BAP-website/
 
-## 📁 Project Structure
+## 🛠 Technologies Used
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
